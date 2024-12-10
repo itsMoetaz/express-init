@@ -1,6 +1,7 @@
 var express = require('express')
 var userRouter = require('./controller/userController')
 var osRouter = require('./controller/osController')
+var productRouter = require('./controller/productController')
 var mongoose = require ('mongoose')
 var app= express()
 app.use(express.json())
@@ -13,6 +14,8 @@ mongoose.connect('mongodb://localhost:27017/user-db').then(
 
 app.use('/users', userRouter)
 app.use('/os',osRouter)
+app.use('/product',productRouter)
+
 var http = require('http')
 var server = http.createServer(app)
 
